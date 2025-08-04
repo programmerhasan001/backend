@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>weekday warrior</title>
+    <title>Passing data to ejs</title>
 </head>
 <body>
-    <% if(fruits.length > 0) { %>
-        <h3>Fruits is available</h3>
+    <% if(locals.numLength) {%>
+        <h1>Your Name Length is <%= numLength %></h1>
+        <% } else { %>
+            <h1>Write your name below 👇</h1>
     <% } %>
-    <ul>
-        <% for(let i = 0; i < fruits.length; i++) { %>
-            <li><%= fruits[i] %></li>
-        <% } %>
-    </ul>
-    <%- htmlContent %>
-    <h4><%= numbers.join(" ") %></h4>
-    <%- include("footer.ejs")  %>
+    <form action="/submit" method="POST">
+        <input type="text" name="fName" placeholder="First Name" required>
+        <input type="text" name="lName" placeholder="Last Name" required>
+        <input type="submit" value="OK">
+    </form>
 </body>
 </html>

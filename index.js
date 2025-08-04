@@ -7,10 +7,13 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 app.get("/", (req, res) => {
-    let bowl = ["Apples", "Oranges", "Pears"]
-    let htmlContent = "<h2>HTML Content</h2>"
-    let numbers = [1, 2, 3, 4];
-    res.render(`index.ejs`, {fruits: bowl, htmlContent, numbers})
+    res.render(`index.ejs`)
+})
+
+app.post("/submit", (req, res) => {
+    const {fName, lName} = req.body;
+    const numLength = (fName + lName).length;
+    res.render('index.ejs', {numLength})
 })
 
 app.listen(port, () => {
