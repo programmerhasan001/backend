@@ -6,6 +6,16 @@
     <title>weekday warrior</title>
 </head>
 <body>
-    <h1>Hey, I's <%= dayType %> <%= advice %></h1>
+    <% if(fruits.length > 0) { %>
+        <h3>Fruits is available</h3>
+    <% } %>
+    <ul>
+        <% for(let i = 0; i < fruits.length; i++) { %>
+            <li><%= fruits[i] %></li>
+        <% } %>
+    </ul>
+    <%- htmlContent %>
+    <h4><%= numbers.join(" ") %></h4>
+    <%- include("footer.ejs")  %>
 </body>
 </html>
