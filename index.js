@@ -5,6 +5,7 @@ const port = 3002;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("public"));
 
 // An array of random adjectives in English
 const randomAdjectives = ["Happy", "Sad", "Funny", "Crazy"];
